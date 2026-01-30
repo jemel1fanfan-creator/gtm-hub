@@ -3,6 +3,9 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { MyTasksContent } from "@/components/tasks/my-tasks-content";
 
+export const dynamic = "force-dynamic";
+
+
 export default async function MyTasksPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");

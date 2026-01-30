@@ -1,6 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import { DashboardContent } from "@/components/dashboard/dashboard-content";
 
+export const dynamic = "force-dynamic";
+
+
 export default async function DashboardPage() {
   const [tasksByStatus, tasksByPriority, recentActivity, upcomingTasks, projects] = await Promise.all([
     prisma.task.groupBy({ by: ["status"], _count: true }),
